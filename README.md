@@ -1,35 +1,36 @@
-# Duolingo AI Network
+# Skill AI, Cuan Nyata.
 
-Ubah member MLM jadi Digital Creator — semudah main game.
+**Creator-Powered Network.** Satu tempat di mana siapa pun bisa berubah jadi kreator digital — dipandu AI, digamifikasi kayak main game, dan langsung menghasilkan.
 
-Platform **Creator-Powered Network**. Mobile-first, AI-native. Bukan sekadar alat bikin caption — ini transformasi cara kerja. Dari jualan tatap muka ke konten digital, dipandu AI Coach yang ngerti siapa kamu.
-
----
-
-## Kenapa
-
-12.000 member. Cuma 5% yang aktif jualan. Sisanya bayar join fee lalu bingung — nggak tahu harus ngapain, nggak punya skill digital, dan metode MLM tradisional nggak relevan buat Gen Z.
-
-Kita bangun jalan keluarnya: sistem gamifikasi + AI profiling yang bikin belajar jualan digital terasa kayak main Duolingo. XP, streak, misi harian — semua didesain supaya member dapat *small win* pertama mereka secepat mungkin.
-
-Bukan ganti produk. Ganti cara kerjanya.
+Bukan cuma alat bikin caption. Ini cara kerja baru. AI Coach-mu bakal kenal siapa kamu, kasih misi harian yang pas, dan rayain setiap progres kecilmu kayak baru naik level.
 
 ---
 
-## Teknologi
+## Gimana caranya?
 
-React Native (Expo) · TypeScript · NativeWind · Zustand · Expo Router · Supabase · OpenAI
+1. **Ngobrol sama AI** — 5 menit aja. AI bakal paham gayamu: kamu tipe yang jago ngomong di depan kamera, atau lebih suka bikin konten tulisan?
+2. **Dapetin misi harian** — AI kasih tantangan yang pas buat kamu. Bikin caption, rekam video pendek, atau generate konten dengan AI tools.
+3. **Naik level, cuan ngikut** — Selesain misi = XP naik = streak terjaga = link afiliasi kamu makin banyak yang klik.
 
----
-
-## Mulai
-
-```bash
-cp .env.example .env   # isi API keys
-bun install
-bun dev
-```
+Kayak Duolingo. Tapi yang naik bukan cuma level — penghasilan kamu juga.
 
 ---
 
-Lihat `AGENTS.md` untuk konvensi dan `DESIGN.md` untuk sistem desain.
+## Buat siapa?
+
+- Udah punya network tapi bingung gimana jualan di dunia digital
+- Pengen punya penghasilan tambahan dari konten, tapi nggak tahu mulai dari mana
+- Bosan cara lama — pengen sesuatu yang lebih seru dan sesuai zaman sekarang
+
+---
+
+## Yang bikin beda
+
+| Fitur | Maksudnya |
+|---|---|
+| AI Coach personal | Bukan template generik. AI ngerti gaya kamu dan sesuaikan tantangannya |
+| Misi pribadi | Tiap orang beda — Silent Builder, Natural Seller, Trend Hunter, atau Trust Anchor |
+| XP & Streak | Gamifikasi bikin nagih. Level up = unlock fitur baru |
+| AI Tools | Generate caption, hook, bahkan produk digital — sekali klik |
+| Mentor Match | Ketemu mentor yang bisa bimbing kamu langsung |
+| Afiliasi | Tiap konten yang kamu buat = potential cuan lewat link |
