@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { View, Text } from "react-native";
-import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
+import { Stack, SplashScreen } from "expo-router";
 import { useAuthStore } from "@/src/shared/stores/useAuthStore";
 import {
   useFonts,

@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Circle, Wrench, BookOpen, User } from "phosphor-react-native";
+import { CheckCircle, Wrench, BookOpen, User } from "phosphor-react-native";
 
 export default function TabLayout() {
   return (
@@ -24,28 +24,28 @@ export default function TabLayout() {
         name="dashboard"
         options={{
           title: "Misi",
-          tabBarIcon: ({ color, size }) => <Circle size={size} color={color} weight="fill" />,
+          tabBarIcon: ({ color, size }) => <CheckCircle size={size} color={color as string} weight="fill" />,
         }}
       />
       <Tabs.Screen
         name="tools"
         options={{
           title: "Tools",
-          tabBarIcon: ({ color, size }) => <Wrench size={size} color={color} />,
+          tabBarIcon: ({ color, size }) => <Wrench size={size} color={color as string} />,
         }}
       />
       <Tabs.Screen
         name="learn"
         options={{
           title: "Belajar",
-          tabBarIcon: ({ color, size }) => <BookOpen size={size} color={color} />,
+          tabBarIcon: ({ color, size }) => <BookOpen size={size} color={color as string} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: "Profil",
-          tabBarIcon: ({ color, size }) => <User size={size} color={color} />,
+          tabBarIcon: ({ color, size }) => <User size={size} color={color as string} />,
         }}
       />
     </Tabs>
