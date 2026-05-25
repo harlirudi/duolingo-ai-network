@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "Duolingo AI Network",
+    "slug": "duolingo-ai-network",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "creator-network",
+    "splash": {
+      "backgroundColor": "#58CC02"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.creatornetwork.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#58CC02",
+        "foregroundImage": "./assets/android-icon-foreground.png"
+      },
+      "package": "com.creatornetwork.app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-haptics",
+      "expo-splash-screen",
+      [
+        "expo-font",
+        {
+          "fonts": []
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
