@@ -4,18 +4,33 @@
 
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
-const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY")!;
+const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY");
+if (!OPENAI_API_KEY) {
+  throw new Error("OPENAI_API_KEY environment variable is not set");
+}
+
+const MAX_PROMPT_LENGTH = 500;
+const ALLOWED_TONES = ["Gaya casual dan friendly.", "Gaya edukatif, thoughtful, dan terstruktur.", "Gaya energetik, persuasif, dan ramah.", "Gaya catchy, trendy, dan pendek.", "Gaya hangat, trustworthy, dan personal."];
+
+function sanitize(input: string, maxLen: number): string {
+  return input.replace(/[\n\r\t]/g, " ").replace(/\s+/g, " ").trim().slice(0, maxLen);
+}
 
 Deno.serve(async (req: Request) => {
   try {
     const { prompt, tone } = await req.json();
 
-    if (!prompt) {
+    if (!prompt || typeof prompt !== "string") {
       return new Response(
         JSON.stringify({ ok: false, error: { code: "MISSING_PROMPT", message: "prompt is required" } }),
         { status: 400, headers: { "Content-Type": "application/json" } },
       );
     }
+
+    const safePrompt = sanitize(prompt, MAX_PROMPT_LENGTH);
+    const safeTone = tone && typeof tone === "string" && ALLOWED_TONES.includes(tone)
+      ? tone
+      : ALLOWED_TONES[0];
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -28,11 +43,11 @@ Deno.serve(async (req: Request) => {
         messages: [
           {
             role: "system",
-            content: `Kamu adalah AI copywriter untuk platform creator digital. ${tone ?? "Gaya casual dan friendly."} Buat caption pendek (max 280 karakter) dalam Bahasa Indonesia. Gunakan emoji secukupnya. Format: langsung caption, tanpa prefix.`,
+            content: `Kamu adalah AI copywriter untuk platform creator digital. ${safeTone} Buat caption pendek (max 280 karakter) dalam Bahasa Indonesia. Gunakan emoji secukupnya. Format: langsung caption, tanpa prefix.`,
           },
           {
             role: "user",
-            content: `Buat caption untuk: ${prompt}`,
+            content: `Buat caption untuk: ${safePrompt}`,
           },
         ],
         max_tokens: 300,
