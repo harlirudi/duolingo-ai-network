@@ -2,14 +2,13 @@
 -- Tables: profiles, missions, affiliate_links, affiliate_clicks, products,
 --          learning_modules, learning_progress, guilds, product_recommendations
 
--- Enable UUID generation
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+-- UUID generation — Supabase uses gen_random_uuid() by default, no extension needed
 
 ------------------------------------------------------------
 -- 1. Guilds (must be created before profiles due to FK)
 ------------------------------------------------------------
 CREATE TABLE guilds (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   leader_id UUID,
   region TEXT,
@@ -47,7 +46,7 @@ ALTER TABLE profiles ADD CONSTRAINT profiles_mentor_fk
 -- 3. Products
 ------------------------------------------------------------
 CREATE TABLE products (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   type TEXT CHECK (type IN ('physical','digital')),
   description TEXT,
@@ -62,7 +61,7 @@ CREATE TABLE products (
 -- 4. Missions
 ------------------------------------------------------------
 CREATE TABLE missions (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   profile_id UUID REFERENCES profiles(id) ON DELETE CASCADE NOT NULL,
   mission_type TEXT CHECK (mission_type IN ('caption','carousel','talking_head','trend_remix','learning','sales')),
   title TEXT NOT NULL,
@@ -81,7 +80,7 @@ CREATE INDEX idx_missions_profile_status ON missions(profile_id, status);
 -- 5. Affiliate Links
 ------------------------------------------------------------
 CREATE TABLE affiliate_links (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   profile_id UUID REFERENCES profiles(id) ON DELETE CASCADE NOT NULL,
   product_id UUID REFERENCES products(id) ON DELETE SET NULL,
   short_code TEXT UNIQUE NOT NULL,
@@ -96,7 +95,7 @@ CREATE TABLE affiliate_links (
 -- 6. Affiliate Clicks (immutable audit log)
 ------------------------------------------------------------
 CREATE TABLE affiliate_clicks (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   link_id UUID REFERENCES affiliate_links(id) ON DELETE CASCADE NOT NULL,
   ip_hash TEXT,
   user_agent TEXT,
@@ -110,7 +109,7 @@ CREATE INDEX idx_affiliate_clicks_link ON affiliate_clicks(link_id);
 -- 7. Learning Modules
 ------------------------------------------------------------
 CREATE TABLE learning_modules (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   title TEXT NOT NULL,
   content TEXT NOT NULL,
   order_index INTEGER NOT NULL,
@@ -133,7 +132,7 @@ CREATE TABLE learning_progress (
 -- 9. Product Recommendations
 ------------------------------------------------------------
 CREATE TABLE product_recommendations (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   profile_id UUID REFERENCES profiles(id) ON DELETE CASCADE NOT NULL,
   product_id UUID REFERENCES products(id) ON DELETE CASCADE NOT NULL,
   reason TEXT,
@@ -146,7 +145,7 @@ CREATE TABLE product_recommendations (
 -- 10. Mentor Match Log (join table)
 ------------------------------------------------------------
 CREATE TABLE mentor_match_log (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   mentor_id UUID REFERENCES profiles(id) ON DELETE CASCADE NOT NULL,
   mentee_id UUID REFERENCES profiles(id) ON DELETE CASCADE NOT NULL,
   matched_at TIMESTAMPTZ DEFAULT now(),
