@@ -159,11 +159,42 @@
 | Trend Hunter | Stylish figure with phone | Phone selfie, headphones | Curiosity, eye sparkle |
 | Trust Anchor | Warm mentor figure | Handshake gesture, open arms | Welcoming, wise |
 
-### AI Coach Mascot
-- **Name:** TBD (Coachy? Ai-Lin?)
-- **Design:** Friendly robot/owl hybrid — tech but approachable
-- **Usage:** Onboarding chat avatar, loading states, empty states, error screens
-- **Variants:** Default (smiling), Thinking (typing dots), Celebrating (confetti), Concerned (error)
+### AI Coach Mascot — KreaTori
+
+- **Nama:** KreaTori
+- **Spesies:** Beo (Hill Myna) — burung pintar yang bisa bicara, native Indonesia, ikonik.
+- **Tech Props:** Smart glasses biru `#1CB0F6` + mic kecil di kaki.
+- **Style:** 2D flat vector, bold outline (2px), Duolingo-inspired. Ekspresi exaggerated, friendly.
+
+#### Color Strategy: 1-Color for Identity, Full-Color for Personality
+
+| Konteks | Warna | Contoh |
+|---|---|---|
+| **App icon, badge, favicon** | Siluet Beo solid hijau `#58CC02` | Satu warna, instant recognition — kayak Twitter bird biru, Duo owl hijau |
+| **In-app illustrations** | Full color | Personality, fun, hidup |
+
+#### Full-Color Palette
+
+| Bagian | Warna | Token |
+|---|---|---|
+| Tubuh | `#58CC02` (Vibrant Green) | `--color-primary` |
+| Jambul | `#FF9600` (Orange) | `--color-archetype-seller` |
+| Paruh | `#FFC800` (Gold) | `--color-xp` |
+| Smart Glasses | `#1CB0F6` (Blue) | `--color-archetype-builder` |
+| Mata | `#FFFFFF` + pupil `#4B4B4B` | White + dark |
+
+#### Usage
+- Onboarding chat avatar, loading states, empty states, error screens
+- Achievement popups, level-up celebration
+- Push notification icon
+- App icon (siluet hijau solid, bg putih)
+
+#### Variants
+- **Default** — sayap terbuka, senyum lebar, mata bintang
+- **Thinking** — sayap di dagu, mata sipit, typing dots di samping
+- **Celebrating** — sayap ke atas, confetti, paruh terbuka (seolah bilang "waah!")
+- **Concerned** — alis turun, sayap di pinggang, keringat mini
+- **Recording** — pegang mic, mata fokus, gelombang suara (untuk misi video)
 
 ---
 
