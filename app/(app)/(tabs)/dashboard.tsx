@@ -129,10 +129,10 @@ function LeaderRow({
   medal: "gold" | "silver" | "bronze";
   isMe?: boolean;
 }) {
-  const medalColors = {
-    gold: "text-gold-medal",
-    silver: "text-silver-medal",
-    bronze: "text-bronze-medal",
+  const medalColorMap = {
+    gold: "#FFD700",
+    silver: "#C0C0C0",
+    bronze: "#CD7F32",
   };
   return (
     <View
@@ -140,7 +140,7 @@ function LeaderRow({
         isMe ? "bg-primary-light rounded-md px-2 -mx-2" : ""
       }`}
     >
-      <Medal size={20} color={`#${medal}`} weight="fill" />
+      <Medal size={20} color={medalColorMap[medal]} weight="fill" />
       <View className="flex-1 ml-3">
         <Text className="text-text-primary text-sm">{name}</Text>
         <Text className="text-text-secondary text-xs">{archetype}</Text>

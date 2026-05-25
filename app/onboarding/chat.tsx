@@ -8,7 +8,11 @@ import {
   Platform,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { useOnboarding, questions } from "@/src/features/onboarding/onboarding.store";
+import {
+  useOnboarding,
+  questions,
+  determineArchetype,
+} from "@/src/features/onboarding/onboarding.store";
 
 export default function ChatScreen() {
   const router = useRouter();
@@ -52,12 +56,9 @@ export default function ChatScreen() {
 
   const processAnswers = (finalAnswer: string) => {
     setLoading(true);
-    const { determineArchetype } =
-      require("@/src/features/onboarding/onboarding.store");
-    const { answers } = useOnboarding.getState();
-    const updatedAnswers = { ...answers, [step]: finalAnswer };
-
-    const result = determineArchetype(updatedAnswers);
+    const state = useOnboarding.getState();
+    const allAnswers = { ...state.answers, [state.step]: finalAnswer };
+    const result = determineArchetype(allAnswers);
     setArchetype(result.type, result.confidence);
 
     setTimeout(() => {

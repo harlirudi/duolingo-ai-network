@@ -183,6 +183,9 @@ export function determineArchetype(
     scores.trust_anchor += 2;
 
   const maxScore = Math.max(...Object.values(scores));
+  if (maxScore === 0) {
+    return { type: "natural_seller" as Archetype, confidence: 0.3 };
+  }
   const entry = Object.entries(scores).find(
     ([, v]) => v === maxScore,
   ) as [Archetype, number];
