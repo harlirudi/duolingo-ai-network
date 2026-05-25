@@ -14,13 +14,13 @@
     "expo-splash-screen": "~56.0.4",
     "expo-status-bar": "~56.0.4",
     "lottie-react-native": "^7.3.8",
-    "nativewind": "^4.3.0",
+    "nativewind": "^4.2.4",
     "phosphor-react-native": "^3.0.6",
     "react": "19.2.3",
     "react-native": "0.85.3",
     "react-native-reanimated": "^4.3.1",
-    "react-native-web": "~0.20.4",
-    "tailwindcss": "^4.3.0",
+    "react-native-web": "~0.19.13",
+    "tailwindcss": "^3.4.17",
     "zustand": "^5.0.13"
   },
   "devDependencies": {

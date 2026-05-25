@@ -1,8 +1,6 @@
-const { default: tailwindcss } = require("nativewind/tailwind/css");
-
 module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
-  presets: [tailwindcss],
+  presets: [require("nativewind/preset")],
   theme: {
     extend: {
       colors: {
