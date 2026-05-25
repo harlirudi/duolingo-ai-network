@@ -1,6 +1,8 @@
 import { useEffect } from "react";
+import { View, Text } from "react-native";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
+import { useAuthStore } from "@/src/shared/stores/useAuthStore";
 import {
   useFonts,
   Nunito_700Bold,
@@ -15,6 +17,7 @@ import {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  const initialize = useAuthStore((s) => s.initialize);
   const [loaded] = useFonts({
     Nunito_700Bold,
     Nunito_800ExtraBold,
@@ -24,6 +27,7 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
+    initialize();
     if (loaded) SplashScreen.hideAsync();
   }, [loaded]);
 
@@ -32,7 +36,10 @@ export default function RootLayout() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="index" />
+      <Stack.Screen name="auth/login" />
       <Stack.Screen name="(app)" />
+      <Stack.Screen name="onboarding/chat" options={{ gestureEnabled: false }} />
+      <Stack.Screen name="onboarding/archetype" options={{ gestureEnabled: false }} />
     </Stack>
   );
 }
