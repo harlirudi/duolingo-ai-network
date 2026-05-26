@@ -44,7 +44,7 @@ export default function Dashboard() {
         <View className="bg-bg rounded-lg p-4 mb-3 shadow-sm border-l-4 border-archetype-seller">
           <View className="flex-row items-start justify-between">
             <View className="flex-1 mr-3">
-              <Text className="text-text-primary text-sm font-heading mb-1">
+              <Text className="text-text-primary text-lg font-heading mb-1">
                 🟠 Natural Seller
               </Text>
               <Text className="text-text-secondary text-sm mb-3">
@@ -62,7 +62,7 @@ export default function Dashboard() {
         <View className="bg-bg rounded-lg p-4 mb-3 shadow-sm border-l-4 border-archetype-builder">
           <View className="flex-row items-start justify-between">
             <View className="flex-1 mr-3">
-              <Text className="text-text-primary text-sm font-heading mb-1">
+              <Text className="text-text-primary text-lg font-heading mb-1">
                 🔵 Silent Builder
               </Text>
               <Text className="text-text-secondary text-sm mb-3">

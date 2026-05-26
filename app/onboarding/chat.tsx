@@ -129,7 +129,7 @@ export default function ChatScreen() {
               returnKeyType="send"
             />
             <View
-              className="w-8 h-8 bg-primary rounded-full items-center justify-center"
+              className="w-11 h-11 bg-primary rounded-full items-center justify-center"
               onTouchEnd={handleSend}
             >
               <Text className="text-text-inverse text-xs">↑</Text>

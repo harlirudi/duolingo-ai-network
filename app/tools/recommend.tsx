@@ -22,14 +22,14 @@ export default function RecommendScreen() {
           🎯 Rekomendasi Produk
         </Text>
         <Text className="text-text-inverse text-sm opacity-80">
-          AI pilihkan produk terbaik untuk networkmu
+          AI pilihkan produk terbaik untuk audiens-mu
         </Text>
       </View>
 
       {loading ? (
         <View className="flex-1 items-center justify-center">
           <Text className="text-text-secondary text-sm">
-            🦜 KreaTori lagi analisa networkmu...
+            🦜 KreaTori lagi cari produk cocok...
           </Text>
         </View>
       ) : (

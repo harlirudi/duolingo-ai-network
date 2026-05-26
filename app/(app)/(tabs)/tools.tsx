@@ -25,7 +25,7 @@ export default function Tools() {
         <ToolCard
           icon="🎯"
           title="Product Recommender"
-          desc="AI pilihkan produk terbaik buat dijual ke networkmu"
+          desc="AI pilihkan produk terbaik buat dijual ke audiens-mu"
           onPress={() => router.push("/tools/recommend")}
         />
         <ToolCard

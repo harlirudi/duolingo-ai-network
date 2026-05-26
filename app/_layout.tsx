@@ -13,8 +13,6 @@ import {
   Inter_600SemiBold,
 } from "@expo-google-fonts/inter";
 
-SplashScreen.preventAutoHideAsync();
-
 export default function RootLayout() {
   const initialize = useAuthStore((s) => s.initialize);
   const [loaded] = useFonts({
@@ -24,6 +22,10 @@ export default function RootLayout() {
     Inter_500Medium,
     Inter_600SemiBold,
   });
+
+  useEffect(() => {
+    SplashScreen.preventAutoHideAsync();
+  }, []);
 
   useEffect(() => {
     initialize();
